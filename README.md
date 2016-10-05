@@ -59,7 +59,9 @@ var intelHexFileData = processor.contents;              // retrieve finished dat
 
 From https://en.wikipedia.org/wiki/Intel_HEX
 
-Intel Hex Line Format (I32HEX, 32 bit addresses) is `:llaaaatt[dd...]cc`
+Only I16HEX formatting is supported, which supports 32 bit addressing through the Extended Segment Address.
+
+The Intel Hex Line Format is `:llaaaatt[dd...]cc`
 
 Where
 * ll = data length
@@ -71,8 +73,10 @@ Where
 Record Types are
 * 00 - data record
 * 01 - end-of-file record
-* 02 - extended segment address record (Not used in I32Hex)
+* 02 - extended segment address record
 * 04 - extended linear address record
 * 05 - start linear address record (MDK-ARM only)
 
 _This module only uses extended segment addresses (02)_
+
+The default hex line terminator is `\n`, which can be changed by setting `processor.lineTerminator`.
