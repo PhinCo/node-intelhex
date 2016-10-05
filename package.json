@@ -1,6 +1,6 @@
 {
   "name": "node-intelhex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Handling and conversion between intelhex and binary data",
   "main": "index.js",
   "scripts": {
