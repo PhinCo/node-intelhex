@@ -1,0 +1,33 @@
+{
+  "name": "node-intelhex",
+  "version": "1.0.0",
+  "description": "Handling and conversion between intelhex and binary data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://homedad@github.com/PhinCo/node-intelhex.git"
+  },
+  "keywords": [
+    "intelhex",
+    "binary",
+    "conversion"
+  ],
+  "author": "Scott Eklund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PhinCo/node-intelhex/issues"
+  },
+  "homepage": "https://github.com/PhinCo/node-intelhex#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "chalk": "^1.1.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.1.0"
+  }
+}
