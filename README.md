@@ -5,7 +5,7 @@ Conversion between binary and intel-hex files, and programmatic construction of 
 ## Usage
 
 ```
-var intelhex = require('node-intelhex');
+var intelhex = require('@connectedyard/node-intelhex');
 
 intelhex.binaryFileToIntelHexFile( "binaryFile.bin", "intelHex.hex" );
 intelhex.intelHexFileToBinaryFile( "intelHex.hex", "binaryFile.bin" );

@@ -318,6 +318,46 @@
 
 	});
 
+	describe('Append Buffer', function(){
+
+		it('builds a file from a small buffer', function(){
+			var buffer = new Buffer(16).fill(0);
+			var fileData = ":1000000000000000000000000000000000000000F0\n:00000001FF\n";
+
+			var file = new IntelFile(0);
+			file.appendBuffer( buffer );
+			file.close();
+
+			expect( file.contents).toBe( fileData );
+		});
+
+		it('builds a file from a huge buffer', function(){
+			var largeSize = 128*1024;
+			var buffer = new Buffer(128*1024).fill(0);
+
+			var file = new IntelFile(0);
+			file.appendBuffer( buffer );
+			file.close();
+
+			var expectedLineCount = largeSize/16 + 2;
+			var lines = file.contents.trim().split('\n');
+
+			expect( lines.length ).toBe( expectedLineCount );
+			var line;
+			var match;
+
+			for( var i = 0; i < lines.length - 1; i++ ){
+				line = lines[i];
+				if( i === 4096 ){
+					match = line.match( "^:02000004[0-9A-F]{4}[0-9A-F]{2}");		// address line every 65536 bytes
+				} else {
+					match = line.match( "^:10[0-9A-F]{4}000{32}[0-9A-F]{2}" );		// data line for 16 zeroes
+				}
+				expect( match.length ).toBe( 1 );
+			}
+		});
+
+	})
 })();
 
 // intelbin.binaryFileToIntelHexFile( 'data/test_in.bin', 'data/test_out.hex', 0x10001000 );

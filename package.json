@@ -1,6 +1,6 @@
 {
-  "name": "node-intelhex",
-  "version": "1.0.2",
+  "name": "@connectedyard/node-intelhex",
+  "version": "1.0.3",
   "description": "Building and converting between intel-hex and binary data",
   "main": "index.js",
   "scripts": {
