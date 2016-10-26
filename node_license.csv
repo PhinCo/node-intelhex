@@ -1,0 +1,64 @@
+name,path,email,licenses,publisher,repo,depth,isProduction
+@connectedyard/node-intelhex@1.0.3,,,MIT,Scott Eklund,git+https://homedad@github.com/PhinCo/node-intelhex,1,false
+bluebird@3.4.6,,petka_antonov@hotmail.com,MIT,Petka Antonov,https://github.com/petkaantonov/bluebird,1,false
+@connectedyard/node-intelhex@1.0.3,,,MIT,Scott Eklund,git+https://homedad@github.com/PhinCo/node-intelhex,1,false
+assertion-error@1.0.2,,jake@qualiancy.com,MIT,Jake Luer,https://github.com/chaijs/assertion-error,1,false
+balanced-match@0.4.2,,mail@juliangruber.com,MIT,Julian Gruber,https://github.com/juliangruber/balanced-match,1,false
+brace-expansion@1.1.6,,mail@juliangruber.com,MIT,Julian Gruber,https://github.com/juliangruber/brace-expansion,1,false
+browser-stdout@1.3.0,,,ISC,kumavis,https://github.com/kumavis/browser-stdout,1,false
+chai@3.5.0,,jake@alogicalparadox.com,MIT,Jake Luer,https://github.com/chaijs/chai,1,false
+commander@2.9.0,,tj@vision-media.ca,MIT,TJ Holowaychuk,https://github.com/tj/commander.js,1,false
+concat-map@0.0.1,,mail@substack.net,MIT,James Halliday,https://github.com/substack/node-concat-map,1,false
+debug@2.2.0,,tj@vision-media.ca,MIT,TJ Holowaychuk,https://github.com/visionmedia/debug,1,false
+deep-eql@0.1.3,,jake@alogicalparadox.com,MIT,Jake Luer,https://github.com/chaijs/deep-eql,1,false
+define-properties@1.1.2,,,MIT,Jordan Harband,https://github.com/ljharb/define-properties,1,false
+diff@1.4.0,,,BSD,,https://github.com/kpdecker/jsdiff,1,false
+es-abstract@1.6.1,,ljharb@gmail.com,MIT,Jordan Harband,https://github.com/ljharb/es-abstract,1,false
+es-to-primitive@1.1.1,,,MIT,Jordan Harband,https://github.com/ljharb/es-to-primitive,1,false
+escape-string-regexp@1.0.5,,sindresorhus@gmail.com,MIT,Sindre Sorhus,https://github.com/sindresorhus/escape-string-regexp,1,false
+expect@1.20.2,,,MIT,Michael Jackson,https://github.com/mjackson/expect,1,false
+foreach@2.0.5,,manuel@takimata.ch,MIT,Manuel Stofer,https://github.com/manuelstofer/foreach,1,false
+fs.realpath@1.0.0,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/isaacs/fs.realpath,1,false
+function-bind@1.1.0,,raynos2@gmail.com,MIT,Raynos,https://github.com/Raynos/function-bind,1,false
+glob@7.0.5,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/isaacs/node-glob,1,false
+graceful-readlink@1.0.1,,,MIT,zhiyelee,https://github.com/zhiyelee/graceful-readlink,1,false
+growl@1.9.2,,tj@vision-media.ca,MIT,TJ Holowaychuk,https://github.com/tj/node-growl,1,false
+has-flag@1.0.0,,sindresorhus@gmail.com,MIT,Sindre Sorhus,https://github.com/sindresorhus/has-flag,1,false
+has@1.0.1,,tpadilha84@gmail.com,MIT,Thiago de Arruda,https://github.com/tarruda/has,1,false
+inflight@1.0.5,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/npm/inflight,1,false
+inherits@2.0.3,,,ISC,,https://github.com/isaacs/inherits,1,false
+is-arrow-function@2.0.3,,,MIT,Jordan Harband,https://github.com/ljharb/is-arrow-function,1,false
+is-boolean-object@1.0.0,,,MIT,Jordan Harband,https://github.com/ljharb/is-boolean-object,1,false
+is-callable@1.1.3,,ljharb@gmail.com,MIT,Jordan Harband,https://github.com/ljharb/is-callable,1,false
+is-date-object@1.0.1,,,MIT,Jordan Harband,https://github.com/ljharb/is-date-object,1,false
+is-equal@1.5.3,,,MIT,Jordan Harband,https://github.com/ljharb/is-equal,1,false
+is-generator-function@1.0.3,,,MIT,Jordan Harband,https://github.com/ljharb/is-generator-function,1,false
+is-number-object@1.0.3,,,MIT,Jordan Harband,https://github.com/ljharb/is-number-object,1,false
+is-regex@1.0.3,,,MIT,Jordan Harband,https://github.com/ljharb/is-regex,1,false
+is-string@1.0.4,,,MIT,Jordan Harband,https://github.com/ljharb/is-string,1,false
+is-symbol@1.0.1,,,MIT,Jordan Harband,https://github.com/ljharb/is-symbol,1,false
+json3@3.3.2,,github@kitcambridge.be,MIT,Kit Cambridge,https://github.com/bestiejs/json3,1,false
+lodash._baseassign@3.2.0,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash._basecopy@3.0.1,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash._basecreate@3.0.3,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash._getnative@3.9.1,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash._isiterateecall@3.0.9,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash.create@3.1.1,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash.isarguments@3.1.0,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash.isarray@3.0.4,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+lodash.keys@3.1.2,,john.david.dalton@gmail.com,MIT,John-David Dalton,https://github.com/lodash/lodash,1,false
+minimatch@3.0.3,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/isaacs/minimatch,1,false
+minimist@0.0.8,,mail@substack.net,MIT,James Halliday,https://github.com/substack/minimist,1,false
+mkdirp@0.5.1,,mail@substack.net,MIT,James Halliday,https://github.com/substack/node-mkdirp,1,false
+mocha@3.1.0,,tj@vision-media.ca,MIT,TJ Holowaychuk,https://github.com/mochajs/mocha,1,false
+ms@0.7.1,,,MIT,,https://github.com/guille/ms.js,1,false
+object-inspect@1.2.1,,mail@substack.net,MIT,James Halliday,https://github.com/substack/object-inspect,1,false
+object-keys@1.0.11,,ljharb@gmail.com,MIT,Jordan Harband,https://github.com/ljharb/object-keys,1,false
+object.entries@1.0.3,,,MIT,Jordan Harband,https://github.com/es-shims/Object.entries,1,false
+once@1.4.0,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/isaacs/once,1,false
+path-is-absolute@1.0.1,,sindresorhus@gmail.com,MIT,Sindre Sorhus,https://github.com/sindresorhus/path-is-absolute,1,false
+supports-color@3.1.2,,sindresorhus@gmail.com,MIT,Sindre Sorhus,https://github.com/chalk/supports-color,1,false
+tmatch@2.0.1,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/isaacs/tmatch,1,false
+type-detect@0.1.1,,jake@alogicalparadox.com,MIT,Jake Luer,https://github.com/chaijs/type-detect,1,false
+type-detect@1.0.0,,jake@alogicalparadox.com,MIT,Jake Luer,https://github.com/chaijs/type-detect,1,false
+wrappy@1.0.2,,i@izs.me,ISC,Isaac Z. Schlueter,https://github.com/npm/wrappy,1,false
