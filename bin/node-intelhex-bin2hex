@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const path = require('path');
+const intelhex = require('../index');
+
+program
+.option('-s, --startaddress [address]', 'Start address of binary file, default is 0x00000000')
+.arguments('binaryFilePath hexFilePath' )
+.parse( process.argv );
+
+if( !program.args || program.args.length < 2 ){
+	console.error('two arguments required');
+	process.exit(1);
+}
+
+const inputPath = path.resolve( program.args[0] );
+const outputPath = path.resolve( program.args[1] );
+const startAddress = ( program.startaddress ) ? parseInt( program.startaddress ) : 0;
+
+intelhex.binaryFileToIntelHexFile( inputPath, outputPath, startAddress )
+.then( function(){
+	console.log('Done.');
+})
+.catch( function( error ){
+	console.error('Failed to convert file. Terminating.');
+	throw error;
+});
+

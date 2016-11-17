@@ -1,7 +1,10 @@
 {
   "name": "@connectedyard/node-intelhex",
-  "version": "1.0.3",
+  "version": "1.1.2",
   "description": "Building and converting between intel-hex and binary data",
+  "bin": {
+    "node-intelhex": "./bin/node-intelhex"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha run test"
@@ -22,7 +25,9 @@
   },
   "homepage": "https://github.com/PhinCo/node-intelhex#readme",
   "dependencies": {
-    "bluebird": "^3.4.6"
+    "bluebird": "^3.4.6",
+    "commander": "^2.9.0",
+    "lodash": "^4.17.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

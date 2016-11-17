@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="cli bin2hex" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="bin/node-intelhex-bin2hex" application-parameters="test/data/test_in.bin test/data/bin2hex_out.hex -s 0x1000" working-dir="$PROJECT_DIR$">
+    <profiling v8-profiler-path="" />
+    <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSProfilingRunConfigurationExtension">
+      <profiling v8-profiler-path="" />
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>

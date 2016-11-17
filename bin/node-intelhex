@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+program
+.command('bin2hex', 'Convert a binary file to hex')
+.command('hex2bin', 'Convert a hex file to binary')
+.command('explain', 'Explain data in a hex file')
+.parse( process.argv );

@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const path = require('path');
+const intelhex = require('../index');
+const fs = require('fs');
+
+program
+.option('-l, --littleEndian', 'Display data as little endian' )
+.arguments('intelhexFilePath')
+.parse( process.argv );
+
+if( !program.args || program.args.length < 1 ){
+	console.error('two arguments required');
+	process.exit(1);
+}
+
+function readFileSync( inputFile ){
+	var string = null;
+	try{
+		string = fs.readFileSync( inputPath, { encoding: 'utf8' });
+	}catch( error ){
+		console.log( "Could not read input file: ", error.message );
+	}
+	return string;
+}
+
+const inputPath = path.resolve( program.args[0] );
+const littleEndian = program.littleEndian;
+const inputHexString = readFileSync( inputPath );
+
+if( !inputHexString ){
+	console.log('Terminating');
+	process.exit(1);
+}
+
+intelhex.intelHexToBinary( inputHexString, { verbose: true, littleEndian: littleEndian });
+

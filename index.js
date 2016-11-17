@@ -29,7 +29,8 @@
 	 * 	 startAtOffsetZero: output binary file begin at address zero, even when min data address in intelFile is > 0
 	 * 	 maxBinaryAddress: maximum binary address, defines size of buffer required in RAM
 	 * 	 verbose: logs processing to console
-
+	 * 	 littleEndian: display data as little endian
+	 *
 	 * @returns binary file data
 	 */
 	exports.intelHexToBinary = function( intelHexString, options ){
