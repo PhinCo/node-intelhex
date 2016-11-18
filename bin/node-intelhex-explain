@@ -49,7 +49,7 @@ _.each( blocks, function( block ){
 	console.log( _.padEnd( "Block Starts at:", 20 ) + "0x" + utils.numberToHexString( block.startAddress, 8 ));
 	console.log( _.padEnd( "Block Length:", 20 ) + "0x" + utils.numberToHexString( block.data.length ));
 
-	const bytesToShow = Math.min( block.data.length, 32 );
+	const bytesToShow = Math.min( block.data.length, 16 );
 	const showEllipses = bytesToShow < block.data.length;
 	const hexString = _hexDumpWords( block.data.slice(0, bytesToShow ), littleEndian);
 
