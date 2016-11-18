@@ -3,8 +3,12 @@
 const program = require('commander');
 const path = require('path');
 const intelhex = require('../index');
+const _ = require('lodash');
+const fs = require('fs');
+const IntelToBufferProcessor = require('../lib/IntelHexFileIn');
 
 program
+.option('-s, --select [blocks]', 'List of block addresses to select out of the file')
 .arguments('hexFilePath binaryFilePath')
 .parse( process.argv );
 
@@ -13,15 +17,35 @@ if( !program.args || program.args.length < 2 ){
 	process.exit(1);
 }
 
+function readFileSync( inputPath ){
+	var string = null;
+	try{
+		string = fs.readFileSync( inputPath, { encoding: 'utf8' });
+	}catch( error ){
+		console.log( "Could not read input file: ", error.message );
+	}
+	return string;
+}
+
 const inputPath = path.resolve( program.args[0] );
 const outputPath = path.resolve( program.args[1] );
+const intelHexString = readFileSync( inputPath );
 
-intelhex.intelHexFileToBinaryFile( inputPath, outputPath )
-.then( function(){
-	console.log('Done.');
-})
-.catch( function( error ){
-	console.error('Failed to convert file. Terminating.');
-	throw error;
-});
+var processor = new IntelToBufferProcessor();
+processor.process( intelHexString );
+var blocks = processor.getBlocks();
+
+if( program.select ){
+	const selectBlockArguments = program.select.split(',');
+	const selectBlockAddresses = _.map( selectBlockArguments, function(s){ return parseInt(s); } );
+	blocks = _.filter( blocks, function( block ){
+		return selectBlockAddresses.indexOf( block.startAddress ) !== -1;
+	})
+}
+
+var binaryOutput = processor.assembleBlocks( blocks );
+
+fs.writeFileSync( outputPath, binaryOutput );
+
+console.log('Done.');
 

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="cli hex2bin" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="bin/node-intelhex-hex2bin" application-parameters="test/data/test_in.hex test/data/hex2bin_out.bin" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="cli hex2bin" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="bin/node-intelhex-hex2bin" application-parameters="test/data/bootloader_1.0.0.hex test/data/bootloader_1.0.0.bin -s 0x33800" working-dir="$PROJECT_DIR$">
     <profiling v8-profiler-path="" />
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSProfilingRunConfigurationExtension">
       <profiling v8-profiler-path="" />
