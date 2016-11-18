@@ -1,7 +1,8 @@
 ( function(){
 
-	var fs = require('fs');
-	var Promise = require('bluebird');
+	const fs = require('fs');
+	const Promise = require('bluebird');
+	const _ = require('lodash');
 
 	exports.BufferToIntelHexProcessor = require('./lib/IntelHexFileOut');
 	exports.IntelToBufferProcessor = require('./lib/IntelHexFileIn');
@@ -32,9 +33,17 @@
 	 */
 	exports.intelHexToBinary = function( intelHexString, options ){
 		var processor = new exports.IntelToBufferProcessor( options );
-		processor.process( intelHexString );
 
-		return processor.getContents();
+		processor.process( intelHexString );
+		var blocks = processor.getBlocks();
+
+		if( options.selectBlocks ){
+			blocks = _.filter( blocks, function( block ){
+				return options.selectBlocks.indexOf( block.startAddress ) !== -1;
+			})
+		}
+
+		return processor.assembleBlocks( blocks );
 	};
 
 

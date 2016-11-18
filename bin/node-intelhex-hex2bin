@@ -27,25 +27,26 @@ function readFileSync( inputPath ){
 	return string;
 }
 
-const inputPath = path.resolve( program.args[0] );
-const outputPath = path.resolve( program.args[1] );
-const intelHexString = readFileSync( inputPath );
-
-var processor = new IntelToBufferProcessor();
-processor.process( intelHexString );
-var blocks = processor.getBlocks();
+var options = {};
 
 if( program.select ){
 	const selectBlockArguments = program.select.split(',');
 	const selectBlockAddresses = _.map( selectBlockArguments, function(s){ return parseInt(s); } );
-	blocks = _.filter( blocks, function( block ){
-		return selectBlockAddresses.indexOf( block.startAddress ) !== -1;
-	})
+	options.selectBlocks = selectBlockAddresses;
 }
 
-var binaryOutput = processor.assembleBlocks( blocks );
+const inputPath = path.resolve( program.args[0] );
+const outputPath = path.resolve( program.args[1] );
 
-fs.writeFileSync( outputPath, binaryOutput );
+
+intelhex.intelHexFileToBinaryFile( inputPath, outputPath, options )
+.then( function(){
+	console.log('Done.');
+})
+.catch( function( error ){
+	console.error('Failed to convert file. Terminating.');
+	throw error;
+});
 
 console.log('Done.');
 
