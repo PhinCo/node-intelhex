@@ -45,15 +45,17 @@ function _hexDumpWords( buffer, littleEndian ){
 	return utils.hexStringByWords( buffer.toString('hex'), littleEndian );
 }
 
-_.each( blocks, function( block ){
-	console.log( _.padEnd( "Block Starts at:", 20 ) + "0x" + utils.numberToHexString( block.startAddress, 8 ));
-	console.log( _.padEnd( "Block Length:", 20 ) + "0x" + utils.numberToHexString( block.data.length ));
+_.each( blocks, function( block, index ){
+	console.log( _.padEnd( index, 4 ) + _.padEnd( "Block Starts at:", 26 ) + "0x" + utils.numberToHexString( block.startAddress, 8 ));
+	console.log( _.padEnd( "", 4 ) + _.padEnd( "Block Length:", 26 ) + "0x" + utils.numberToHexString( block.data.length ));
 
 	const bytesToShow = Math.min( block.data.length, 16 );
 	const showEllipses = bytesToShow < block.data.length;
 	const hexString = _hexDumpWords( block.data.slice(0, bytesToShow ), littleEndian);
 
-	console.log( _.padEnd( "Block Data Begins:", 20 ) + "0x" + hexString + ((showEllipses ) ? " ... " : "") + "\n");
+	console.log( _.padEnd( "", 4 ) + _.padEnd( "Block Data Begins With:", 26 ) + "0x" + hexString + ((showEllipses ) ? " ... " : ""));
+	console.log( _.padEnd( "", 4 ) + _.padEnd( "Block Ends at:", 26 ) + "0x" + utils.numberToHexString( block.endAddress() ));
+	console.log();
 });
 
 

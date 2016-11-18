@@ -35,15 +35,18 @@
 		var processor = new exports.IntelToBufferProcessor( options );
 
 		processor.process( intelHexString );
-		var blocks = processor.getBlocks();
+		var allBlocks = processor.getBlocks();
+		var selectedBlocks = allBlocks;
 
-		if( options.selectBlocks ){
-			blocks = _.filter( blocks, function( block ){
-				return options.selectBlocks.indexOf( block.startAddress ) !== -1;
-			})
+		if( options.selectBlockAddresses || options.selectBlockIndexes ){
+			selectedBlocks = _.filter( allBlocks, function( block, index ){
+				if( options.selectBlockAddresses && options.selectBlockAddresses.indexOf( block.startAddress ) !== -1) return true;
+				else if( options.selectBlockIndexes && options.selectBlockIndexes.indexOf( index ) !== -1 ) return true;
+				else return false;
+			});
 		}
 
-		return processor.assembleBlocks( blocks );
+		return processor.assembleBlocks( selectedBlocks );
 	};
 
 

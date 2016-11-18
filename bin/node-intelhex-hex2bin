@@ -8,7 +8,8 @@ const fs = require('fs');
 const IntelToBufferProcessor = require('../lib/IntelHexFileIn');
 
 program
-.option('-s, --select [blocks]', 'List of block addresses to select out of the file')
+.option('-a, --addresses [addresses]', 'List of blocks to select out of file by start address')
+.option('-i, --indexes [indexes]', 'List of block indexes to select of file by index')
 .arguments('hexFilePath binaryFilePath')
 .parse( process.argv );
 
@@ -29,10 +30,16 @@ function readFileSync( inputPath ){
 
 var options = {};
 
-if( program.select ){
-	const selectBlockArguments = program.select.split(',');
-	const selectBlockAddresses = _.map( selectBlockArguments, function(s){ return parseInt(s); } );
-	options.selectBlocks = selectBlockAddresses;
+if( program.addresses ){
+	const selectBlockAddressArguments = program.addresses.split(',');
+	const selectBlockAddresses = _.map( selectBlockAddressArguments, function(s){ return parseInt(s); } );
+	options.selectBlockAddresses = selectBlockAddresses;
+}
+
+if( program.indexes ){
+	const selectBlockIndexArguments = program.indexes.split(',');
+	const selectBlockIndexes = _.map( selectBlockIndexArguments, function(s){ return parseInt(s); } );
+	options.selectBlockIndexes = selectBlockIndexes;
 }
 
 const inputPath = path.resolve( program.args[0] );
@@ -47,6 +54,4 @@ intelhex.intelHexFileToBinaryFile( inputPath, outputPath, options )
 	console.error('Failed to convert file. Terminating.');
 	throw error;
 });
-
-console.log('Done.');
 
