@@ -27,9 +27,6 @@
 	 * @param intelHexString: intel-hex file data
 	 * @param options: map, keys include
 	 * 	 startAtOffsetZero: output binary file begin at address zero, even when min data address in intelFile is > 0
-	 * 	 maxBinaryAddress: maximum binary address, defines size of buffer required in RAM
-	 * 	 verbose: logs processing to console
-	 * 	 littleEndian: display data as little endian
 	 *
 	 * @returns binary file data
 	 */
@@ -37,7 +34,7 @@
 		var processor = new exports.IntelToBufferProcessor( options );
 		processor.process( intelHexString );
 
-		return processor.contents;
+		return processor.getContents();
 	};
 
 
@@ -76,8 +73,6 @@
 	 * @param binaryFileName
 	 * @param options: map, keys include
 	 * 	 startAtOffsetZero: output binary file begin at address zero, even when min data address in intelFile is > 0
-	 * 	 maxBinaryAddress: maximum binary address, defines size of buffer required in RAM
-	 * 	 verbose: logs processing to console
 	 *
 	 * @returns Promise, returning true
 	 */

@@ -4,6 +4,9 @@ const program = require('commander');
 const path = require('path');
 const intelhex = require('../index');
 const fs = require('fs');
+const _ = require('lodash');
+const utils = require('../lib/utils');
+const IntelToBufferProcessor = require('../lib/IntelHexFileIn');
 
 program
 .option('-l, --littleEndian', 'Display data as little endian' )
@@ -15,7 +18,7 @@ if( !program.args || program.args.length < 1 ){
 	process.exit(1);
 }
 
-function readFileSync( inputFile ){
+function readFileSync( inputPath ){
 	var string = null;
 	try{
 		string = fs.readFileSync( inputPath, { encoding: 'utf8' });
@@ -27,12 +30,31 @@ function readFileSync( inputFile ){
 
 const inputPath = path.resolve( program.args[0] );
 const littleEndian = program.littleEndian;
-const inputHexString = readFileSync( inputPath );
+const intelHexString = readFileSync( inputPath );
 
-if( !inputHexString ){
+if( !intelHexString ){
 	console.log('Terminating');
 	process.exit(1);
 }
 
-intelhex.intelHexToBinary( inputHexString, { verbose: true, littleEndian: littleEndian });
+var processor = new IntelToBufferProcessor();
+processor.process( intelHexString );
+var blocks = processor.getBlocks();
+
+function _hexDumpWords( buffer, littleEndian ){
+	return utils.hexStringByWords( buffer.toString('hex'), littleEndian );
+}
+
+_.each( blocks, function( block ){
+	console.log( _.padEnd( "Block Starts at:", 20 ) + "0x" + utils.numberToHexString( block.startAddress, 8 ));
+	console.log( _.padEnd( "Block Length:", 20 ) + "0x" + utils.numberToHexString( block.data.length ));
+
+	const bytesToShow = Math.min( block.data.length, 32 );
+	const showEllipses = bytesToShow < block.data.length;
+	const hexString = _hexDumpWords( block.data.slice(0, bytesToShow ), littleEndian);
+
+	console.log( _.padEnd( "Block Data Begins:", 20 ) + "0x" + hexString + ((showEllipses ) ? " ... " : "") + "\n");
+});
+
+
 

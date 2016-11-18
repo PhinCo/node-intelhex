@@ -16,7 +16,7 @@
 
 			var processor = new IntelToBinaryProcessor();
 			processor.process( intelHexFileData );
-			var binaryResults = processor.contents;
+			var binaryResults = processor.getContents();
 
 			expect( binaryResults ).toEqual( binaryFileData );
 		});
